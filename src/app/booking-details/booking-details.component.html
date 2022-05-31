@@ -1,0 +1,76 @@
+
+<div>
+  
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        
+       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <label>Please enter EmailId </label>
+      <form [formGroup]="formReturnData" (ngSubmit)="onClickEmailSubmit(formReturnData.value)">
+        <!-- pnr input -->
+        <div class="form-outline mb-4">
+          <input type="text" id="form1Example13" formControlName="email" class="form-control form-control-lg" />
+         
+        </div>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Get Booking Details by EmailID</button>
+       
+      </form>
+   </div>
+        
+       
+       
+      </div>
+    </div>
+    <div class="col-md-12" id="htmlData">
+  <table class="table table-primary table-striped" [style.display]="isVisiblebyEmail ? 'block' : 'none'">
+  <thead>
+      <tr>
+        <th>BookingId</th>
+        <th>User Name</th>
+        <th>EmailId</th>
+        <th>No Of Seats</th>
+        <th>Meal Type</th>
+        <th>SeatNo</th>
+        <th>Price</th>
+        <th>Passenger Name</th>
+        <th>Passenger Gender</th>
+        <th>Passenger Age</th>
+        <th>Pnr No</th>
+        <th>AirlineName</th>
+        <th>FlightNo</th>
+        <th>Cancel ticket</th>
+        <th>Download ticket </th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let dataItem of bookingDetailsbyemail$|async">
+          <td>{{dataItem.bookingId}}</td>
+          <td>{{dataItem.userName}}</td>
+          <td>{{dataItem.emailId}}</td>
+          <td>{{dataItem.noOfSeats}}</td>
+          <td>{{dataItem.mealType}}</td>
+          <!-- <td>{{dataItem.Start_DateTime}}</td> -->
+          <td>{{dataItem.seatNo}}</td>
+          <td>{{dataItem.price}}</td>
+          <td>{{dataItem.passengerName}}</td>
+          <td>{{dataItem.passengerGender}}</td>
+          <td>{{dataItem.passengerAge}}</td>
+          <td>{{dataItem.pnrNo}}</td>
+          <td>{{dataItem.airlineName}}</td>
+          <td>{{dataItem.flightNo}}</td>
+          <td>
+            <button class="btn btn-success pull-right" (click)="deletebyEmail(dataItem.pnrNo)">Cancel Ticket</button>
+           </td>
+           <td>
+            <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+           </td>
+         
+      </tr>
+  </tbody>
+</table>
+
+
+ 
+     </div>
+

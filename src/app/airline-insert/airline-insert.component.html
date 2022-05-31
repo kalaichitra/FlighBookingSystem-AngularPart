@@ -1,0 +1,34 @@
+
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          
+        <form [formGroup]="formReturnData" (ngSubmit)="onClickSubmit()">
+           <!-- airline name -->
+           <div class="form-group">
+            <label class="form-label" for="form1Example13">AirlineName</label>
+            <input type="text" id="form1Example13" formControlName="airlineName" class="form-control form-control-lg" />
+          </div>
+            <!-- contact add -->
+            <div class="form-group">
+                <label class="form-label" for="form1Example13">ContactAddress</label>
+            <input type="text" id="form1Example13" formControlName="contactAddress" class="form-control form-control-lg" />
+          </div>
+          <!-- contact no input -->
+          <div class="form-group">
+            <label class="form-label" for="form1Example23">ContactNo</label>
+            <input type="number" id="form1Example23"  formControlName="contactNo" class="form-control form-control-lg" />
+          </div>
+           <!-- Active status -->
+           <div class="form-group">
+            <label class="form-label" for="form1Example23">Active</label>
+            <input type="text" id="form1Example23"  formControlName="Active" class="form-control form-control-lg" />
+          </div>
+          <!-- Submit button -->
+          <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Register Airline</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

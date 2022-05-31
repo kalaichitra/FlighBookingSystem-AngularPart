@@ -1,0 +1,104 @@
+<div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+     
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          
+        <form [formGroup]="formReturnData" (ngSubmit)="onClickSubmit()">
+           <!--StartDate -->
+           <div class="form-group">
+            <label class="form-label" for="form1Example13">Onword Journey Date</label>
+            <input type="date" id="form1Example13" formControlName="StartDate" class="form-control form-control-lg" />
+          </div>
+            <!-- EndDate -->
+            <div class="form-group">
+                <label class="form-label" for="form1Example13">Return Journey Date</label>
+            <input type="date" id="form1Example13" formControlName="EndDate" class="form-control form-control-lg" />
+          </div>
+          <!-- FromPlace -->
+          <div class="form-group">
+            <label class="form-label" for="form1Example23">From Place</label>
+            <input type="text" id="form1Example23"  formControlName="FromPlace" class="form-control form-control-lg" />
+          </div>
+        <!--  ToPlace -->
+        <div class="form-group">
+            <label class="form-label" for="form1Example23">To Place</label>
+            <input type="text" id="form1Example23"  formControlName="ToPlace" class="form-control form-control-lg" />
+             </div>
+        <!--  TripType -->
+        <div class="form-group">
+            <label class="form-label" for="form1Example23">TripType</label>
+            <select formControlName="TripType" class="form-control">
+                <option disabled>Select TripType</option>
+                <option value="1">Oneway</option>
+                <option value="2">Round Trip</option>
+            </select>
+            </div>
+          <!-- Submit button -->
+          <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Search Flights</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <label [style.display]="isVisiblebyRoundOneTrip ? 'block' : 'none'">Onward Journey </label>
+<table class="table table-striped" [style.display]="isVisiblebyRoundOneTrip ? 'block' : 'none'">
+  <tr>
+  <thead>
+    <th>AirlineName</th>
+          <th>FlightNo</th>
+          <th>Journey Date</th>
+          <th>Ticket Cost</th>
+          <th>Book ticket</th>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let dataItem of searchResults$|async" >
+     <tr *ngFor="let onetrip of dataItem.onetrip" >
+         <td>{{onetrip.airlineName}} </td>
+         <td>{{onetrip.flightNo}}</td>
+         <td>{{onetrip.ticketCost}}</td>
+         <td>{{onetrip.startDate}}</td>
+         <td>  <button class="btn btn-success pull-right" (click)="gotoDynamic(onetrip.airlineName, onetrip.flightNo, onetrip.startDate, onetrip.ticketCost)">Book ticket</button>  </td>
+       </ng-container>
+    
+ </tbody>
+
+</table>
+
+</div>
+<div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+  <label [style.display]="isVisiblebyRoundOneTrip ? 'block' : 'none'">Return Journey </label>
+<table class="table table-striped" [style.display]="isVisiblebyRoundOneTrip ? 'block' : 'none'">
+  <tr>
+  <thead>
+    <th>AirlineName</th>
+          <th>FlightNo</th>
+          <th>Journey Date</th>
+          <th>Ticket Cost</th>
+          <th>Book ticket</th>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let dataItem of searchResults$|async" >
+     <tr *ngFor="let roundtrip of dataItem.roundtrip" >
+         <td>{{roundtrip.airlineName}} </td>
+         <td>{{roundtrip.flightNo}}</td>
+         <td>{{roundtrip.ticketCost}}</td>
+         <td>{{roundtrip.startDate}}</td>
+         <td>  <button class="btn btn-success pull-right" (click)="gotoDynamic(roundtrip.airlineName, roundtrip.flightNo, roundtrip.startDate, roundtrip.ticketCost)">Book ticket</button>  </td>
+       </ng-container>
+    
+ </tbody>
+</tr>
+</table>
+</div>
+
+
+</div>
+</div>
+<div> 
+
+
+<router-outlet></router-outlet> 

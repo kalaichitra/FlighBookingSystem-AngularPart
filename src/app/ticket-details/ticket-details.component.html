@@ -1,0 +1,75 @@
+
+<div>
+  
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <label>Please enter PNR </label>
+          <form [formGroup]="formReturnData" (ngSubmit)="onClickSubmit(formReturnData.value)">
+            <!-- pnr input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="form1Example13" formControlName="pnr" class="form-control form-control-lg" />
+             
+            </div>
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Get Booking Details by PNR</button>
+           
+          </form>
+       </div>
+
+      
+   </div>
+        
+       
+       
+      </div>
+    </div>
+    <div> 
+
+     
+      <div class="col-md-12" id="htmlData">
+        <table class="table table-primary table-striped" [style.display]="isVisiblebyPnr ? 'block' : 'none'">
+          <thead>
+            <tr>
+<th>AirlineName</th>
+<th>BookingId</th>
+<th>Discount</th>
+<th>EmailId</th>
+<th>FlightNo</th>
+<th>Meal Type</th>
+<th>No Of Seats</th>
+<th>Passenger Age</th>
+<th>Passenger Gender</th>
+<th>Passenger Name</th>
+<th>Pnr No</th>
+<th>Price</th>
+<th>SeatNo</th>
+<th>Start Date Time</th>
+<th>User Name</th>
+<th>Cancel ticket</th>
+<th>Download ticket </th>
+                  
+                  
+      </tr>
+    </thead>
+                  <tbody>
+                   <tr>
+                     <td *ngFor="let dataItem of bookingDetails$|keyvalue">   
+                       {{dataItem.value}}
+                       </td>
+                       <td>
+                        <button class="btn btn-success pull-right" (click)="deleteClick()">Cancel Ticket</button>
+                       </td>
+                       <td>
+                        <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+                       </td>
+                      </tr>
+                </tbody>
+             </table>
+</div>
+  
+
+
+ 
+     </div>
+

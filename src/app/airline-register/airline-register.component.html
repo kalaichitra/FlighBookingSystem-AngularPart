@@ -1,0 +1,31 @@
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>AirlineName</th>
+            <th>Contact_Address</th>
+            <th>Contact_No</th>
+            <th>IsActive</th>
+            <th>Add new Flights</th>
+            <th>Block/Unblock Airline</th>
+            <th>Delete Airline</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of AirlineList$|async">
+            <td>{{dataItem.airlineName}}</td>
+            <td>{{dataItem.contactAddress}}</td>
+            <td>{{dataItem.contactNo}}</td>
+            <td>{{dataItem.isActive}}</td>
+            <td>  <button class="btn btn-success pull-right" (click)="gotoDynamic(dataItem.airlineName)">Add new Flights</button>  </td>
+         <td><button class="btn btn-success pull-right" (click)="editClick(dataItem)" >Block/Unblock Airline</button>  </td> 
+         <td><button class="btn btn-success pull-right" (click)="deleteClick(dataItem)">Delete Airline</button>  </td>
+        </tr>
+    </tbody>
+</table>
+<a routerLink="/airline-insert"><button class="btn btn-success pull-left" >Register New Airline</button></a> 
+
+<router-outlet></router-outlet> 
+  

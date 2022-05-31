@@ -1,0 +1,24 @@
+<div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          
+        <form [formGroup]="formReturnData" (ngSubmit)="onClickSubmit()">
+           <!-- airline name -->
+           <div class="form-group">
+            <label class="form-label" for="form1Example13">Coupon Code</label>
+            <input type="text" id="form1Example13" formControlName="dicountCode" class="form-control form-control-lg" />
+          </div>
+            <!-- contact add -->
+            <div class="form-group">
+                <label class="form-label" for="form1Example13">Discount Amount(%)</label>
+            <input type="text" id="form1Example13" formControlName="discontCost" class="form-control form-control-lg" />
+          </div>
+         
+          <!-- Submit button -->
+          <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Create Coupon </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

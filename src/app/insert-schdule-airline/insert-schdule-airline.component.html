@@ -1,0 +1,84 @@
+
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <form [formGroup]="formReturnData" (ngSubmit)="onClickSubmit()">
+           <!-- airline name -->
+           <div class="form-group">
+            <label class="form-label" for="form1Example13">AirlineName</label>
+            <input readonly type="text" id="airlineName"  formControlName="AirlineName" class="form-control form-control-lg" />
+          </div>
+            <!-- flightNo -->
+            <div class="form-group">
+                <label class="form-label" for="form1Example13">FlightNo</label>
+            <input type="number" id="form1Example13" formControlName="FlightNo" class="form-control form-control-lg" />
+          </div>
+          <!-- fromPlace -->
+          <div class="form-group">
+            <label class="form-label" for="form1Example23">From Place</label>
+            <input type="text" id="form1Example23"  formControlName="FromPlace" class="form-control form-control-lg" />
+          </div>
+          
+           <div class="form-group">
+            <label class="form-label" for="form1Example23">To Place</label>
+            <input type="text" id="form1Example23"  formControlName="toPlace" class="form-control form-control-lg" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="form1Example23">Start Date</label>
+            <input type="date" id="form1Example23"  formControlName="startDate" class="form-control form-control-lg" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form1Example23">End Date</label>
+            <input type="date" id="form1Example23"  formControlName="endDate" class="form-control form-control-lg" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form1Example23">Scheduled Days</label>
+
+            <select formControlName="scheduledDays" class="form-control">
+                <option disabled>Select Scheduled Days</option>
+                <option value="1">Daily</option>
+                <option value="2">Week days</option>
+                <option value="3">Week ends</option>
+            </select>
+            <!-- <input type="number" id="form1Example23"  formControlName="scheduledDays" class="form-control form-control-lg" /> -->
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form1Example23">Instrument Used</label>
+            <input type="text" id="form1Example23"  formControlName="instrumentUsed" class="form-control form-control-lg" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form1Example23">BusinessSeats</label>
+            <input type="number" id="form1Example23"  formControlName="businessSeats" class="form-control form-control-lg" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form1Example23">Non BusinessSeats</label>
+            <input type="number" id="form1Example23"  formControlName="nonBusinessSeats" class="form-control form-control-lg" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form1Example23">Ticket Cost</label>
+            <input type="number" id="form1Example23"  formControlName="ticketCost" class="form-control form-control-lg" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form1Example23">Number Of Rows</label>
+            <input type="number" id="form1Example23"  formControlName="numberOfRows" class="form-control form-control-lg" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form1Example23">Meal Type</label>
+
+            <select formControlName="mealType" class="form-control">
+                <option disabled>Select Website</option>
+                <option>Veg</option>
+                <option>Non Veg</option>
+                <option>Veg & Non Veg</option>
+            </select>
+          </div>
+
+          <!-- Submit button -->
+          <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Schedule</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

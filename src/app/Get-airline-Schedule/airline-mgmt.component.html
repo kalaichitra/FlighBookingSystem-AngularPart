@@ -1,0 +1,49 @@
+<table class="table table-primary table-striped">
+    <thead>
+        <tr>
+            <th>Airline Name</th>
+            <th>Flight No</th>
+            <th>From Place</th>
+            <th>To Place</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Scheduled Days</th>
+            <th>Instrument Used</th>
+            <th>Business Seats</th>
+            <th>Non Business Seats</th>
+            <th>Ticket Cost</th>
+            <th>Number Of Rows</th>
+            <th>Meal Type</th>
+            <th>Edit</th>
+           
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of AirlineList$|async">
+            <td>{{dataItem.airlineName}}</td>
+            <td>{{dataItem.flightNo}}</td>
+            <td>{{dataItem.fromPlace}}</td>
+            <td>{{dataItem.toPlace}}</td>
+            <td>{{dataItem.startDate}}</td>
+            <td>{{dataItem.endDate}}</td>
+            <td>{{dataItem.scheduledDays}}</td>
+            <td>{{dataItem.instrumentUsed}}</td>
+            <td>{{dataItem.businessSeats}}</td>
+            <td>{{dataItem.nonBusinessSeats}}</td>
+            <td>{{dataItem.ticketCost}}</td>
+            <td>{{dataItem.numberOfRows}}</td>
+            <td>{{dataItem.mealType}}</td>
+            <td><button class="btn btn-success pull-right" >Edit</button></td>
+            <!-- <button type="button" class="btn btn-light mr-1"
+            data-bs-toggle="model" data-bd-target="#exampleModal"
+            (click)="editClick(dataItem)"
+            data-backdrop="static" data-Keyboard="false">
+            Edit
+            </button> -->
+        </tr>
+    </tbody>
+</table>
+<!-- <a routerLink="/airline-schedule-insert"><button class="btn btn-success pull-right" >Schedule Airline</button></a>  -->
+
+<router-outlet></router-outlet> 
